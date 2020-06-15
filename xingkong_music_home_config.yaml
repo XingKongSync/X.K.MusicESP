@@ -1,0 +1,52 @@
+esphome:
+  name: esp02
+  platform: ESP32
+  board: nodemcu-32s
+  includes:
+    - xingkong_music_home.h
+    - includes/FFT.h
+    - includes/ExpFilter.h
+    - includes/VisualEffect.h
+    - includes/gaussian_filter1d.h
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pwd
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret pwd
+
+ota:
+  password: !secret pwd
+
+light:
+  - platform: neopixelbus
+    id: LedsStrip01
+    variant : WS2812
+    pin: GPIO12
+    type: GRB
+    num_leds: 200
+    name: "MUSIC LEDS"
+    effects:
+      - addressable_rainbow:
+      - addressable_lambda:
+          name: Scroll with Music
+          update_interval: 0s
+          lambda: |-
+            music_leds.ShowFrame(MODE_SCROLL, &it);
+      - addressable_lambda:
+          name: Energy with Music
+          update_interval: 0s
+          lambda: |-
+            music_leds.ShowFrame(MODE_ENERGY, &it);
+      - addressable_lambda:
+          name: Spectrum with Music
+          update_interval: 0s
+          lambda: |-
+            music_leds.ShowFrame(MODE_SPECTRUM, &it);
