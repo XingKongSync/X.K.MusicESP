@@ -12,7 +12,7 @@ ESP32 + WS2812 + Music
 + 3.5mm的AUX线，左声道接入ESP32的ADC1_CHANNEL_3，地线接EPS32的GND
 
 
-## 2. Reference
+## 3. Reference
 大部分代码来自于：
 
 [https://github.com/zhujisheng/audio-reactive-led-strip](https://github.com/zhujisheng/audio-reactive-led-strip)
@@ -25,7 +25,7 @@ ESP32 + WS2812 + Music
 [https://www.youtube.com/watch?v=m8LwPNXqK9o&t=124s](https://www.youtube.com/watch?v=m8LwPNXqK9o&t=124s)<br/>
 [https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2s.html](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2s.html)
 
-## 3. Lessions
+## 4. Lessions
 
 踩坑总结：
 
@@ -35,5 +35,5 @@ ESP32 + WS2812 + Music
 1. 接地后，当电脑在没有播放音乐的时候，会出现随机的尖刺，不知道为什么。我使用卡尔曼滤波器 + 星空曼滤波器解决了
 1. 我买的四段式AUX插座，如果把三段式音频插头插到底，会出现左右声道短路的情况，不知道其他AUX插座是不是这样
 
-## 4. Demonstration
+## 5. Demonstration
 [https://www.bilibili.com/video/BV1vi4y1x7Pa/](https://www.bilibili.com/video/BV1vi4y1x7Pa/)
